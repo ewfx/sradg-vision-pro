@@ -1,0 +1,57 @@
+---
+data_collection_task:
+  description: Ingest and preprocess data from {historical_recon_data} and {current_recon_data}.
+    Clean and normalize the datasets to ensure compatibility with downstream analysis
+    tasks.
+  expected_output: A cleaned and enriched dataset ready for anomaly detection.
+  async_execution: false
+  agent: data_ingestion_specialist
+anomaly_detection_task:
+  description: Apply LLM-based inference combined with clustering techniques on the
+    preprocessed data to identify and flag anomalies in real time.
+  expected_output: A set of detected anomalies with associated metadata, ready for
+    classification.
+  async_execution: false
+  agent: anomaly_detection_analyst
+  context:
+  - data_collection_task
+classification_task:
+  description: Classify each detected anomaly into predefined buckets as specified
+    by {predefined_buckets}. If an anomaly does not fit an existing bucket, mark it
+    as 'new' and log the details for review.
+  expected_output: A structured report mapping each anomaly to a predefined bucket
+    or marking it as 'new' with detailed information.
+  async_execution: false
+  agent: classification_expert
+  context:
+  - anomaly_detection_task
+feedback_capture_task:
+  description: Develop and deploy an interactive dashboard for reconcilers to review
+    detected anomalies and provide feedback (such as flagging false positives/negatives)
+    that is recorded in the {feedback_log}.
+  expected_output: User feedback captured and integrated into the system for further
+    refinement of the anomaly detection model.
+  async_execution: false
+  agent: feedback_loop_coordinator
+  context:
+  - classification_task
+break_resolution_task:
+  description: Utilize Agentic AI to analyze reconciliation breaks with identified
+    anomalies, generate concise summaries of resolution steps, and learn from operator
+    actions to suggest corrective measures.
+  expected_output: Summaries of reconciliation break resolutions that mimic operator
+    insights and provide actionable recommendations.
+  async_execution: false
+  agent: break_resolution_analyst
+  context:
+  - classification_task
+workflow_automation_task:
+  description: Upon confirmation of anomaly and break resolution, automate follow-up
+    actions by triggering email notifications and support ticket creation based on
+    outputs from the break resolution analysis.
+  expected_output: Automated workflow actions, including email dispatches and ticket
+    creation, recorded for audit and further tracking.
+  async_execution: false
+  agent: operator_automation_coordinator
+  context:
+  - break_resolution_task

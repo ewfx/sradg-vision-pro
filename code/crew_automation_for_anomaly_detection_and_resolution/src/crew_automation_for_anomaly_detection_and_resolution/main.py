@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-from agent_creation_for_crew_automation.crew import AgentCreationForCrewAutomationCrew
+from crew_automation_for_anomaly_detection_and_resolution.crew import CrewAutomationForAnomalyDetectionAndResolutionCrew
 
 # This main file is intended to be a way for your to run your
 # crew locally, so refrain from adding unnecessary logic into this file.
@@ -12,14 +12,12 @@ def run():
     Run the crew.
     """
     inputs = {
-        'financial_data_path': 'sample_value',
-        'clean_transactions_data': 'sample_value',
-        'reconciliation_rules': 'sample_value',
-        'anomaly_list': 'sample_value',
-        'reconciliation_report': 'sample_value',
-        'final_report': 'sample_value'
+        'historical_recon_data': 'sample_value',
+        'current_recon_data': 'sample_value',
+        'predefined_buckets': 'sample_value',
+        'feedback_log': 'sample_value'
     }
-    AgentCreationForCrewAutomationCrew().crew().kickoff(inputs=inputs)
+    CrewAutomationForAnomalyDetectionAndResolutionCrew().crew().kickoff(inputs=inputs)
 
 
 def train():
@@ -27,15 +25,13 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        'financial_data_path': 'sample_value',
-        'clean_transactions_data': 'sample_value',
-        'reconciliation_rules': 'sample_value',
-        'anomaly_list': 'sample_value',
-        'reconciliation_report': 'sample_value',
-        'final_report': 'sample_value'
+        'historical_recon_data': 'sample_value',
+        'current_recon_data': 'sample_value',
+        'predefined_buckets': 'sample_value',
+        'feedback_log': 'sample_value'
     }
     try:
-        AgentCreationForCrewAutomationCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        CrewAutomationForAnomalyDetectionAndResolutionCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -45,7 +41,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        AgentCreationForCrewAutomationCrew().crew().replay(task_id=sys.argv[1])
+        CrewAutomationForAnomalyDetectionAndResolutionCrew().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -55,15 +51,13 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        'financial_data_path': 'sample_value',
-        'clean_transactions_data': 'sample_value',
-        'reconciliation_rules': 'sample_value',
-        'anomaly_list': 'sample_value',
-        'reconciliation_report': 'sample_value',
-        'final_report': 'sample_value'
+        'historical_recon_data': 'sample_value',
+        'current_recon_data': 'sample_value',
+        'predefined_buckets': 'sample_value',
+        'feedback_log': 'sample_value'
     }
     try:
-        AgentCreationForCrewAutomationCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
+        CrewAutomationForAnomalyDetectionAndResolutionCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
