@@ -1,66 +1,23 @@
 ### Crew Automation plan designed to detect anomalies in financial transaction data and perform reconciliation based on specified criteria.
 
-Automation Plan: Financial Transaction Anomaly Detection and Reconciliation
-Objective: Develop a set of agents that will ingest financial transaction data, detect anomalies using predefined business rules, reconcile suspicious entries by cross-checking with historical expectations, and generate a comprehensive report for further analysis.
+Automation Plan: An end-to-end solution that accepts {historical_recon_data} and {current_recon_data} as inputs. LLMs and clustering techniques will detect anomalies, a classification agent will bucket them (marking any unknown reason as "new" with details), and a human-in-the-loop feedback tool will refine the system. An Agentic AI break resolution agent then provides concise summaries and Operator Assist Agents auto-initiate corrective actions (sending emails, creating tickets).
 
 ###### Output:
 
-• A cleaned and structured dataset of financial transactions.
-• A list of transaction anomalies flagged with relevant metrics.
-• A reconciliation report outlining recommended corrective actions.
-• A compiled dashboard/report for business review.
+• Anomaly detection results
+• Classification of detected anomalies into {predefined_buckets} (and marking new categories)
+• Break resolution summaries using Agentic AI
+• Automated actions (e.g., emails, ticket creation) for reconciliation breaks
 
 ###### Inputs:
 
-- \_ {financialdatapath}: Path or URL to your financial transactions data (e.g., CSV file).
+• {historical_recon_data}: Historical reconciliation records
+• {current_recon_data}: Live reconciliation details
+• {predefined_buckets}: Set classification buckets for anomaly reasons
+• {feedback_log}: Feedback from reconcilers identifying false positives/negatives
 
 ###### Tools Selected:
 
 - CSVSearchTool: Use to analyze and sift through CSV-formatted transaction data.
-
-###### Agents and Tasks:
-
-##### Data Ingestion Agent
-
-- Role: Responsible for loading and cleaning the raw financial transactions data.
-- Tasks:
-
-  - Preprocess Financial Data:
-
-    - Description: Ingest data from {financialdatapath} using CSVSearchTool and perform initial cleaning.
-    - (Assigned to: Data Ingestion Agent)
-
-  - Organize Transactions Data:
-    - Description: Structure the cleaned data into {cleantransactionsdata} for further analysis.
-    - (Assigned to: Data Ingestion Agent)
-
-##### Anomaly Detection Agent
-
-- Role: Analyzes the structured data to identify any deviations from the norm based on historical transaction patterns and thresholds.
-- Tasks:
-
-  - Analyze Data for Anomalies:
-
-    - Description: Apply anomaly detection algorithms to {cleantransactionsdata} and identify transactions that significantly deviate from expectations. The outcomes are stored as {anomaly_list}.
-    - (Assigned to: Anomaly Detection Agent)
-
-  - Validate Anomalies Against Criteria:
-    - Description: Filter out false positives by comparing each anomaly against {reconciliationrules}, refining the {anomalylist}.
-    - (Assigned to: Anomaly Detection Agent)
-
-##### Reconciliation Agent
-
-- Role: Cross-check flagged anomalies against expected patterns and business rules to decide on necessary corrective actions.
-- Tasks:
-
-  - Cross-Check Anomalies with Financial Records:
-    - Description: Using {anomalylist} and {reconciliationrules}, reconcile each anomaly by comparing them with historical data and expected transaction formats. The resulting actions and recommendations are stored in {reconciliation_report}.
-    - (Assigned to: Reconciliation Agent)
-
-##### Reporting Agent
-
-- Role: Summarizes and presents the final outputs in a comprehensive report for decision-makers.
-- Tasks:
-  - Generate Comprehensive Report:
-    - Description: Consolidate {cleantransactionsdata}, {anomalylist}, and {reconciliationreport} into a final report and dashboard detailing detected issues, the rationale behind each reconciliation decision, and overall system performance.
-    - (Assigned to: Reporting Agent)
+- Interactive UI module – For feedback collection from reconcilers
+- Communication integrations – Email and ticketing systems
