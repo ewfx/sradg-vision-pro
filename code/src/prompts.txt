@@ -1,0 +1,1 @@
+1. Detect anomalies in below historical csv data where match status is Break and reason out the why anomaly has come and store against column 'anomaly reason' for each occurrence 
