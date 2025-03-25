@@ -1,0 +1,23 @@
+1. Create Data
+
+2. Agent 1
+    Analyse the historical and current data and find out if there is any anomally
+    Update the csv for current data
+
+3. Agent 2
+    Take csv from agent 1  and the historical data -> reason out why the anomally has come
+    Update the csv
+
+4. Agent 3
+    Take csv from agent 2 and reconcilation actions -> what actions can be performed for reconcilation
+    update csv
+
+____________________________________________________________________
+
+5. Agent 4
+    [Anomally rows and actions] -> QC process
+    Output result to user
+
+6. Agnent 5 
+    > Take input from the user and for successive iterations provide that comment to the Agents.
+
