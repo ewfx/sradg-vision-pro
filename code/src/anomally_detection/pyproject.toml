@@ -1,0 +1,23 @@
+[project]
+name = "anomally_detection"
+version = "0.1.0"
+description = "anomally-detection using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.108.0,<1.0.0"
+]
+
+[project.scripts]
+anomally_detection = "anomally_detection.main:run"
+run_crew = "anomally_detection.main:run"
+train = "anomally_detection.main:train"
+replay = "anomally_detection.main:replay"
+test = "anomally_detection.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

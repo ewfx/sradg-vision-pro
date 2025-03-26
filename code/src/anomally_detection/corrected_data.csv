@@ -1,0 +1,8 @@
+As of Date,Company,Account,AU,Currency,Primary Account,Secondary Account,GL Balance,IHub Balance,Anomaly,Comments,Resolution
+20-09-2024,Alpha Corp,10004,2,USD,EQUITY,RETAINED EARNINGS,994203,54207,YES,Huge discrepancy between GL and IHub balance,Review data entries for accuracy
+20-09-2024,Beta Ltd,10005,6,EUR,REVENUE,EXPENSES,393100,39310,YES,Significant difference suggests data entry error or calculation issue,Verify entries against original invoices
+22-09-2024,Delta LLC,10005,6,CAD,REVENUE,EXPENSES,51121,51118,YES,Possible rounding off error due to minor difference in balances,Check rounding rules applied for consistency
+20-09-2024,Alpha Corp,10010,10,EUR,TAXES,ACCRUED LIABILITIES,87886,87885.98,YES,Misreporting leading to a rounding error in reporting,Ensure consistent reporting precision
+22-09-2024,Alpha Corp,10005,6,EUR,REVENUE,EXPENSES,393100,39310,YES,Repeated anomaly indicating potential systematic data handling error,Investigate recurring handling errors
+23-09-2024,Zeta Group,10002,3,JPY,CASH,ACCOUNTS PAYABLE,42509,42513,YES,Discrepancy suggests possible misalignment in financial entries,Align GL and IHub entries for reconciliation
+23-09-2024,Gamma Inc,10009,9,CAD,PREPAID EXPENSES,UNBILLED REVENUE,63919,63919,YES,The match indicates no anomaly; verification needed in accounting structure,Perform structural verification of accounts

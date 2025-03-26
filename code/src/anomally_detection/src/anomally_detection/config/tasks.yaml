@@ -1,0 +1,41 @@
+anomaly_detection_task:
+  description: >
+    Investigate the data present in {historical_filename} to and find out trends and common errors.
+    By looking into mismatches into the {criteria_col} of {current_filename}.
+    The {criteria_col} is the result of comparison between the {key_col_1} and {key_col_2}. Some mismatches appear
+    frequently and you excel in finding out which of these are anomalies.
+  expected_output: >
+    A single file with the columns {critera_col}, {key_col_1}, {key_col_2} and a new column {derived_col} formatted as a CSV document
+    The new column has "YES" or "NO" for each row in the file {current_filename}.
+  agent: anomaly_detector
+
+anomaly_analysis_task:
+  description: >
+    Analyze the context that you have received. It contains records that have anomalies.
+    Look into the rows with anomaly column as "YES" and reason out why the anomalies have occured and try to sort them into buckets.
+    Some sample buckets are:
+    1. Rounding off error
+    2. Data entry error
+    3. Huge spikes in oustanding balances
+    These are just samples. You should be able to view the data in context of {topic} to come up with your reasoning.
+    Feel free to add reasons as new buckets.
+    As you are working with CSV files, make sure to not have any comma punctuations in your reasoning.
+  expected_output: >
+    A single file with the columns {critera_col}, {key_col_1}, {key_col_2}, {derived_col} and a new column {comment_col} formatted as a CSV document
+    The new column has reasons for each row in the file that you have received as context {current_filename}.
+  agent: anomaly_analyzer
+  # output_file: data_with_reasons.csv
+
+resolution_task:
+  description: >
+    Examine the context that you have received. It contains records that have anomalies.
+    Looking at the possible reasoning in the context, provide steps that can be taken to resolve the anomaly.
+    As you are working with CSV files, make sure to not have any comma punctuations in your reasoning.
+  expected_output: >
+    A single file with the columns {critera_col}, {key_col_1}, {key_col_2}, {derived_col}, {comment_col} and a new column {resolution_col} formatted as a CSV document
+    The new column has actions for each row in the file that you have received as context {current_filename}.
+  agent: anomaly_resolver
+  human_input: True
+  output_file: reconcilation_actions.csv
+
+
