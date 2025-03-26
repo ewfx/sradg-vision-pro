@@ -24,8 +24,7 @@ Our tool:
 
 
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
+📹 [Video Demo](https://github.com/ewfx/sradg-vision-pro/tree/main/artifacts/demo) (if applicable)  
 🖼️ Screenshots:
 
 ![Screenshot 1](link-to-image)
