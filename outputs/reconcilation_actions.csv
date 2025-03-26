@@ -1,0 +1,7 @@
+As of Date,Company,Account,AU,Currency,Primary Account,Secondary Account,GL Balance,IHub Balance,Anomaly,Comments,Resolution
+20-09-2024,Alpha Corp,10004,2,USD,EQUITY,RETAINED EARNINGS,994203,54207,YES,Digit Mismatch error,Review GL and IHub balances to ensure accuracy.
+20-09-2024,Beta Ltd,10005,6,EUR,REVENUE,EXPENSES,393100,39310,YES,Human entry error,Re-check entries for accuracy and correct discrepancies.
+22-09-2024,Delta LLC,10005,6,CAD,REVENUE,EXPENSES,51121,51118,YES,Rounding error,Examine calculations for rounding adjustments.
+20-09-2024,Zeta Group,10006,4,EUR,FIXED ASSETS,DEPRECIATION,52582,51182,YES,Digit Mismatch error,Confirm data entry aligns with verified sources.
+22-09-2024,Gamma Inc,10005,6,GBP,REVENUE,EXPENSES,50476,50477,YES,Rounding error,Adjust for rounding discrepancies as necessary.
+23-09-2024,Zeta Group,10002,3,JPY,CASH,ACCOUNTS PAYABLE,42509,42513,YES,Digit Mismatch error,Cross-check data with original transaction documents.
